@@ -15,6 +15,7 @@
     <modules>
         <module>fj-springboot-framework</module>
         <module>fj-springboot-web</module>
+        <module>fj-springboot-service</module>
     </modules>
 
 
