@@ -5,13 +5,13 @@
     <parent>
         <artifactId>java-springboot</artifactId>
         <groupId>com.fangjian</groupId>
-        <version>1.0.0.SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.fangjian</groupId>
     <artifactId>fj-springboot-service</artifactId>
-    <version>1.0.0.SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <packaging>jar</packaging>
 
