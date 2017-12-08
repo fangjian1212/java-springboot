@@ -14,6 +14,12 @@
 
     <properties>
         <maven.deploy.skip>true</maven.deploy.skip>
+
+        <!--jvmSettings.agentId 简写项目名称 只能包含 [a-zA-Z0-9], '.', '-', '_' 且不超过13个长度，中间加符号"-" 占一位 预留10个长度给到脚本自动追加hostname 做全局唯一标识-->
+        <jvmSettings.agentId>fj-boot</jvmSettings.agentId>
+        <!--jvmSettings.agentApplicationName 只能包含 [a-zA-Z0-9], '.', '-', '_'. 最大长度:24 -->
+        <jvmSettings.agentApplicationName>fj-boot</jvmSettings.agentApplicationName>
+
     </properties>
 
     <profiles>
@@ -23,6 +29,9 @@
             <id>dev</id>
             <properties>
                 <env>dev</env>
+                <jvmSettings.javaagent>
+                    -javaagent:/data/service/pinpoint-agent-1.6.2/pinpoint-bootstrap-1.6.2.jar
+                </jvmSettings.javaagent>
                 <jvmSettings.initialMemorySize>512</jvmSettings.initialMemorySize>
                 <jvmSettings.maxMemorySize>512</jvmSettings.maxMemorySize>
             </properties>
@@ -35,6 +44,9 @@
             <id>prd</id>
             <properties>
                 <env>prd</env>
+                <jvmSettings.javaagent>
+                    -javaagent:/data/service/pinpoint-agent-1.6.2/pinpoint-bootstrap-1.6.2.jar
+                </jvmSettings.javaagent>
                 <jvmSettings.initialMemorySize>1024</jvmSettings.initialMemorySize>
                 <jvmSettings.maxMemorySize>1024</jvmSettings.maxMemorySize>
             </properties>
@@ -216,6 +228,14 @@
                                     <extraArgument>-server</extraArgument>
                                     <!--<extraArgument>-Xms4500m</extraArgument>-->
                                     <!--<extraArgument>-Xmx4500m</extraArgument>-->
+
+                                    <extraArgument>${jvmSettings.javaagent}</extraArgument>
+                                    <!-- 注意注意!!! jvmSettings.agentId长度不能超过13个长度 ,
+                                          并且中间加符号"-" 占一位 预留10个长度给到脚本自动追加hostname 做全局唯一标识 -->
+                                    <extraArgument>-Dpinpoint.agentId=${jvmSettings.agentId}-</extraArgument>
+                                    <!-- 注意注意!!! jvmSettings.agentApplicationName  只能包含 [a-zA-Z0-9], '.', '-', '_'. 最大长度:24-->
+                                    <extraArgument>-Dpinpoint.applicationName=${jvmSettings.agentApplicationName}</extraArgument>
+
                                 </extraArguments>
                             </jvmSettings>
                         </daemon>
