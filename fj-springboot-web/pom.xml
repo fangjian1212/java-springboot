@@ -206,12 +206,16 @@
                                     </configuration>
                                 </generatorConfiguration>
                             </generatorConfigurations>
+
+                            <!--appassembler-maven-plugin对jvm堆个信息做了限制，如果项目中jvm 堆超过4G配置的，initialMemorySize、maxMemorySize 不配置。-->
                             <jvmSettings>
                                 <initialMemorySize>${jvmSettings.initialMemorySize}</initialMemorySize>
                                 <maxMemorySize>${jvmSettings.maxMemorySize}</maxMemorySize>
+
                                 <extraArguments>
                                     <extraArgument>-server</extraArgument>
-
+                                    <!--<extraArgument>-Xms4500m</extraArgument>-->
+                                    <!--<extraArgument>-Xmx4500m</extraArgument>-->
                                 </extraArguments>
                             </jvmSettings>
                         </daemon>
