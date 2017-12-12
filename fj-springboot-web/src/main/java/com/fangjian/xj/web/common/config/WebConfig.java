@@ -1,5 +1,7 @@
 package com.fangjian.xj.web.common.config;
 
+import com.fangjian.xj.web.interceptor.LoginInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
@@ -75,6 +77,9 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
 
+    @Autowired
+    private LoginInterceptor loginInterceptor;
+
     /**
      * 配置拦截器
      *
@@ -82,6 +87,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
      */
     public void addInterceptors(InterceptorRegistry registry) {
 
+//        registry.addInterceptor(loginInterceptor).excludePathPatterns("/demo/demo2/*");
+        registry.addInterceptor(loginInterceptor).addPathPatterns("/demo/demo2/*");
     }
 
 

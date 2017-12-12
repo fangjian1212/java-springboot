@@ -44,7 +44,7 @@ public class DemoController {
      * @param request
      * @return
      */
-    @RequestMapping(value = "/demo2", method = {RequestMethod.GET})
+    @RequestMapping(value = "/demo2/index", method = {RequestMethod.GET})
     public RestResultVO<Object> demo2(HttpServletRequest request) {
 
         LOGGER.info("id:[{}]", request.getUserPrincipal().getName());
@@ -60,7 +60,7 @@ public class DemoController {
      * @param response
      * @return
      */
-    @RequestMapping(value = "/demo3", method = {RequestMethod.POST})
+    @RequestMapping(value = "/demo3", method = {RequestMethod.GET})
     public RestResultVO<Object> demo3(HttpServletRequest request, HttpServletResponse response) {
 
         HttpSession session = request.getSession();
