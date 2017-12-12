@@ -56,6 +56,8 @@
 
     <!--所依赖的包-->
     <dependencies>
+
+
         <dependency>
             <groupId>com.fangjian</groupId>
             <artifactId>fj-springboot-service</artifactId>

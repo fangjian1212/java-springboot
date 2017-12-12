@@ -1,7 +1,7 @@
 package com.fangjian;
 
-import com.fangjian.xj.session.EnableSession;
-import com.fangjian.xj.session.SessionGroup;
+import com.fangjian.share.session.EnableSession;
+import com.fangjian.share.session.SessionGroup;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
