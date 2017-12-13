@@ -104,7 +104,10 @@
         <property name="defaultExpiration" value="86400"/>
         <property name="expires">
             <map>
-                <!--accessToken-->
+                <!--accessToken
+                Service方法上
+                @Cacheable(cacheNames = "jc:c:const:accessToken", key = "'jc:c:const:accessToken:'+#accessTokenParm.toString()")
+                -->
                 <entry key="jc:c:const:accessToken" value="7200"/>
             </map>
         </property>
