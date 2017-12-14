@@ -2,6 +2,7 @@ package com.fangjian;
 
 import com.fangjian.share.session.EnableSession;
 import com.fangjian.share.session.SessionGroup;
+import com.fangjian.study.annotation.enable.EnableDemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
@@ -21,6 +22,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
         group = SessionGroup.USER,
         connectionFactory = "sessionJedisConnectionFactory"
 )
+@EnableDemo(param = "fangjianlxj")
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
