@@ -26,6 +26,7 @@ public class Base64ImgUtil {
             return false;
         }
         BASE64Decoder decoder = new BASE64Decoder();
+        OutputStream out = null;
         try {
             //解密
             byte[] b = decoder.decodeBuffer(imgStr);
@@ -35,7 +36,7 @@ public class Base64ImgUtil {
                     b[i] += 256;
                 }
             }
-            OutputStream out = new FileOutputStream(path);
+            out = new FileOutputStream(path);
             out.write(b);
             out.flush();
             out.close();
@@ -43,6 +44,8 @@ public class Base64ImgUtil {
         } catch (IOException e) {
             e.printStackTrace();
             return false;
+        } finally {
+            close(out);
         }
     }
 
@@ -62,10 +65,22 @@ public class Base64ImgUtil {
             inputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            close(inputStream);
         }
         // 加密
         BASE64Encoder encoder = new BASE64Encoder();
         return encoder.encode(data);
+    }
+
+
+    private static void close(Closeable closeable) {
+        if (null != closeable) {
+            try {
+                closeable.close();
+            } catch (IOException e) {
+            }
+        }
     }
 
     public static void main(String[] args) {
