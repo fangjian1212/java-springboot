@@ -1,4 +1,4 @@
-package com.fangjian.framework.utils.self.random;
+package com.fangjian.framework.utils.self.more;
 
 /**
  * Created by fangjian on 2016/9/24.
