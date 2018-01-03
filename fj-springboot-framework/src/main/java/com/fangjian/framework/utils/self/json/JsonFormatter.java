@@ -31,7 +31,7 @@ public class JsonFormatter {
         if(null == tl.get()) {
             ObjectMapper mapper = new ObjectMapper();
             mapper.disable(new Feature[]{Feature.FAIL_ON_UNKNOWN_PROPERTIES});
-            mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd"));
+//            mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd"));
             if(!serializeNull) {
                 mapper.setSerializationInclusion(Inclusion.NON_NULL);
                 mapper.disable(new org.codehaus.jackson.map.SerializationConfig.Feature[]{org.codehaus.jackson.map.SerializationConfig.Feature.WRITE_NULL_MAP_VALUES});

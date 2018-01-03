@@ -17,7 +17,7 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 @SpringBootApplication(exclude = {SessionAutoConfiguration.class, DataSourceAutoConfiguration.class, RedisConnectionFactory.class,
         RedisAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
 @ImportResource({"classpath*:spring/applicationContext-*.xml"})
-@PropertySource({"classpath:db.properties", "classpath:common.properties", "classpath:redis.properties"})
+@PropertySource({"classpath:db.properties", "classpath:common.properties", "classpath:redis.properties", "classpath:rabbit.properties"})
 @EnableSession(
         group = SessionGroup.USER,
         connectionFactory = "sessionJedisConnectionFactory"
